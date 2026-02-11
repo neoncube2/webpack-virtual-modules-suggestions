@@ -65,7 +65,7 @@ Asset configuration in `webpack.config.js`:
 }
 ```
 
-`import Logo from 'img/logo.svg'` results in `dist/img/logo.svg`, but `import Logo from 'virtual:img/logo.svg'` results in `dist/__virtual__logo.svg`. (The filename is different, and also it's not placed in the `img/` directory, because `[path]` is not defined.
+`import Logo from 'img/logo.svg'` results in `dist/img/logo.svg`, but `import Logo from 'virtual:img/logo.svg'` results in `dist/__virtual__logo.svg`. The filename is different, and also it's not placed in the `img/` directory, because `[path]` is not defined.
 
 ### [name]
 
