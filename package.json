@@ -1,0 +1,18 @@
+{
+	"name": "webpack-virtual-modules-suggestions",
+	"version": "1.0.0",
+	"license": "Copyright Elijah Black",
+	"scripts": {
+		"build": "yarn run webpack"
+	},
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"devDependencies": {
+		"splitter-loader": "portal:./splitter-loader",
+		"webpack": "https://pkg.pr.new/webpack@e06423b",
+		"webpack-cli": "*",
+		"webpack-dev-server": "*"
+	},
+	"packageManager": "yarn@4.12.0"
+}
