@@ -41,7 +41,7 @@ It would be nice to be able to set the context of a virtual module:
 
 ```js
 virtualModulePlugin.modules['./src/pages/home-page.js'] = {
-    type: '.js'，
+    type: '.js',
     context: '/webpack-virtual-modules-suggestions/src/pages/',
     source: ....
 };
