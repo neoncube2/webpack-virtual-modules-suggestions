@@ -51,7 +51,7 @@ new webpack.experiments.schemes.VirtualUrlPlugin({
 
 ## Virtual module filenames
 
-The loader rewrites the source of all import statements so that they're in the form `splitter-loader/loader-inner.js!virtual:src/pages/home-page.js`. Import sources for asset files are also rewritten (e.g. `splitter-loader/loader-inner.js!virtual:img/logo.svg`). The loader then checks if the file is an asset file, and if it is, it passes the contents through without touching it (`return content;`). This breaks the naming of output files for two reasons: `[name]` is different than the original filename, and also `[path]` is not defined.
+The loader rewrites the source of all import statements so that they're in the form `splitter-loader/loader-inner.js!virtual:src/pages/home-page.js`. Import sources for asset files are also rewritten (e.g. `splitter-loader/loader-inner.js!virtual:img/logo.svg`). The loader then checks if the file is an asset file, and if it is, it passes the contents through without touching it. This breaks the naming of output files for two reasons: `[name]` is different than the original filename, and also `[path]` is not defined.
 
 Asset configuration in `webpack.config.js`:
 
@@ -65,7 +65,7 @@ Asset configuration in `webpack.config.js`:
 }
 ```
 
-`import Logo from 'img/logo.svg';` result in `dist/img/logo.svg`, but `import Logo from 'virtual:img/logo.svg';` results in `dist/__virtual__logo.svg`. (The filename is different, and also it's not placed in the `img/` directory, because `[path]` is not defined.
+`import Logo from 'img/logo.svg'` results in `dist/img/logo.svg`, but `import Logo from 'virtual:img/logo.svg'` results in `dist/__virtual__logo.svg`. (The filename is different, and also it's not placed in the `img/` directory, because `[path]` is not defined.
 
 ### [name]
 
