@@ -29,10 +29,10 @@ To get around this, the loader manually passes the context as an option and then
 
 **index.js**
 ```js
-import HomePage from 'splitter-loader/loader-inner.js?{\"context\":\"/webpack-virtual-modules-suggestions/src/pages/\"}!virtual:./src/pages/home-page.js';
+import HomePage from 'splitter-loader/loader-inner.js?{\"context\":\"/webpack-virtual-modules-suggestions/src/pages/\"}!virtual:src/pages/home-page.js';
 ```
 
-**virtual:./src/pages/home-page.js**
+**virtual:src/pages/home-page.js**
 ```js
 import Logo from '/webpack-virtual-modules-suggestions/img/logo.svg';
 ```
@@ -49,7 +49,7 @@ virtualModulePlugin.modules['./src/pages/home-page.js'] = {
 
 ## Virtual module filenames
 
-The loader rewrites the source of all import statements so that they're in the form `splitter-loader/loader-inner.js!virtual:./src/pages/home-page.js`. Import sources for asset files are also rewritten (e.g. `splitter-loader/loader-inner.js!virtual:../img/logo.svg`). The loader then checks if the file is an asset file, and if it is, it passes the contents through without touching it (`return content;`). This breaks the naming of output files for two reasons: `[name]` is different than the original filename, and also `[path]` is not defined.
+The loader rewrites the source of all import statements so that they're in the form `splitter-loader/loader-inner.js!virtual:src/pages/home-page.js`. Import sources for asset files are also rewritten (e.g. `splitter-loader/loader-inner.js!virtual:img/logo.svg`). The loader then checks if the file is an asset file, and if it is, it passes the contents through without touching it (`return content;`). This breaks the naming of output files for two reasons: `[name]` is different than the original filename, and also `[path]` is not defined.
 
 Asset configuration in `webpack.config.js`:
 
