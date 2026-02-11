@@ -139,4 +139,4 @@ My personal preference would be for `[name]`, `[path]`, the context, and the fil
 }
 ```
 
-I think this would be more intuitive than setting the properties manually, and would make virtual modules feel more like normal modules.
+I think this would be intuitive and would make virtual modules feel more like normal modules.
