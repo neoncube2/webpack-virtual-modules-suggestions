@@ -40,10 +40,12 @@ import Logo from '/webpack-virtual-modules-suggestions/img/logo.svg';
 It would be nice to be able to set the context of a virtual module:
 
 ```js
-virtualModulePlugin.modules['./src/pages/home-page.js'] = {
+new webpack.experiments.schemes.VirtualUrlPlugin({
+  'src/pages/home-page.js': {
     type: '.js',
     context: '/webpack-virtual-modules-suggestions/src/pages/',
     source: ....
+  }
 };
 ```
 
@@ -83,10 +85,12 @@ import Logo from 'virtual:logo.svg';
 Alternatively, `name` could be added as another option when creating the virtual module:
 
 ```js
-virtualModulePlugin.modules['./img/logo.svg'] = {
+new webpack.experiments.schemes.VirtualUrlPlugin({
+  'img/logo.svg': {
     type: '.svg',
     name: 'logo.svg',
     source: ....
+  }
 };
 ```
 
@@ -94,11 +98,13 @@ virtualModulePlugin.modules['./img/logo.svg'] = {
 
 `[path]` could also be set manually:
 ```js
-virtualModulePlugin.modules['./img/logo.svg'] = {
+new webpack.experiments.schemes.VirtualUrlPlugin({
+  'img/logo.svg': {
     type: '.svg',
     name: 'logo.svg',
     path: 'img',
     source: ....
+  }
 };
 ```
 
@@ -112,9 +118,11 @@ import Logo from 'virtual:img/logo.svg'
 Finally, it could be extracted from the context:
 
 ```js
-virtualModulePlugin.modules['./img/logo.svg'] = {
+new webpack.experiments.schemes.VirtualUrlPlugin({
+  'img/logo.svg': {
     type: '.svg',
     context: 'img',
     source: ....
+  }
 };
 ```
