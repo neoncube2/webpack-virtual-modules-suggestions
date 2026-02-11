@@ -20,7 +20,7 @@ const WEBPACK_CONFIG = {
                 test: /\.(png|jpg|jpeg|svg)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: '[path]-[contenthash][ext]'
+                    filename: '[path][name]-[contenthash][ext]'
                 }
             }
         ]
