@@ -2,10 +2,7 @@ import { processContent, getSplitterLoader } from './splitter-utils.js';
 
 export default async function asyncLoader(content, map, meta) {
     const {
-        exportName,
-        importFilepath,
-        context,
-        mustFindImport
+        context
     } = this.getOptions();
 
     const loader = this;
@@ -13,9 +10,9 @@ export default async function asyncLoader(content, map, meta) {
     if (await getSplitterLoader(loader, context) == null)
         return content;
 
-    const processedContent = await processContent(content, exportName, importFilepath, context, loader, mustFindImport);
+    const processedContent = await processContent(content, context, loader);
 
-    console.log('In inner splitter loader, exported ' + exportName + ' from ' + importFilepath + ' with context ' + context);
+    console.log('In inner splitter loader, exported with context ' + context);
     console.log(processedContent);
 
     return processedContent;

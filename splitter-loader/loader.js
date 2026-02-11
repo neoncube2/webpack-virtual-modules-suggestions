@@ -17,10 +17,8 @@ async function isEntry(loader, importFilepath) {
 
 export default async function asyncLoader(content, map, meta) {
     const {
-        exportName = '*',
         importFilepath = this._module.userRequest,
-        context = this.rootContext,
-        mustFindImport = false
+        context = this.rootContext
     } = this.getOptions();
 
     const loader = this;
@@ -28,9 +26,9 @@ export default async function asyncLoader(content, map, meta) {
     if (!await isEntry(loader, importFilepath))
         return content;
 
-    const processedContent = await processContent(content, exportName, importFilepath, context, loader, mustFindImport)
+    const processedContent = await processContent(content, context, loader)
 
-    console.log('In splitter loader, exported ' + exportName + ' from ' + importFilepath + ' with context ' + context);
+    console.log('In splitter loader, exporting from ' + importFilepath + ' with context ' + context);
     console.log(processedContent);
 
     return processedContent;
