@@ -126,3 +126,17 @@ new webpack.experiments.schemes.VirtualUrlPlugin({
   }
 };
 ```
+
+# Other thoughts
+My personal preference would be for `[name]`, `[path]`, the context, and the file type to all be automatically set from the virtual module's name, so `import Logo from 'img/logo.svg` would automatically result in the following the condiguration:
+
+```js
+{
+  name: 'logo.svg',
+  type: 'svg',
+  path: 'img',
+  context: 'img',
+}
+```
+
+I think this would be more intuitive than setting the properties manually, and would make virtual modules feel more like normal modules.
