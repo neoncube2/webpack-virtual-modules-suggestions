@@ -16,9 +16,9 @@ There's currently no way to be able to set the context of a virtual module, so t
 import HomePage from 'virtual:src/pages/home-page.js';
 ```
 
-**virtual:./src/pages/home-page.js**
+**virtual:src/pages/home-page.js**
 ```js
-// Breaks, because dynamically-loader.js is at /webpack-virtual-modules-suggestions/src/pages/dynamically-loaded.js and our import statement is evaluated from /webpack-virtual-modules-suggestions, since that's where the context defaults to
+// Breaks, because dynamically-loaded.js is at /webpack-virtual-modules-suggestions/src/pages/dynamically-loaded.js and our import statement is evaluated from /webpack-virtual-modules-suggestions, since that's where the context defaults to
 const dynamicallyLoaded = import('./dynamically-loaded.js');
 
 // Also breaks, because logo.svg is at /webpack-virtual-modules-suggestions/img/logo.svg and our import statement is evaluated from /webpack-virtual-modules-suggestions, since that's where the context defaults to
