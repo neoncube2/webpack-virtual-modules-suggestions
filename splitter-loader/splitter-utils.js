@@ -239,18 +239,8 @@ async function getPossiblyNeededImportStatements(imports, statements, context, l
             }
         });
 
-        const splitterLoader = await getSplitterLoader(loader, context);
-
-        const excludedImports = new Set(splitterLoader.options?.exclude ?? []);
-
         for (let importExpression of importExpressions) {
             const source = importExpression.source;
-
-            if (excludedImports.has(source.value)) {
-                console.log('Excluding ' + source.value);
-
-                continue;
-            }
 
             source.raw = JSON.stringify(await makeImportSource(source.value, '*', context, loader, false));
         }
@@ -409,7 +399,6 @@ export async function processContent(content, exportName, importFilepath, contex
             }
 
             case 'ImportDeclaration':
-                // TODO: Might be possible to use the sideEffects flag instead?
                 if (statement.specifiers.length === 0)
                     statementsWithSideEffects.push(statement);
                 else
